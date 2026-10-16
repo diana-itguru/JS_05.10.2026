@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undertale: Undertale</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="app-viewport-wrapper">
+    <div id="root">
+
+        <div class="undertale-container">
+
+            <div class="ut-screen" id="gameScreen">
+                <div class="ut-dialog-box">
+                    <div class="ut-text">* Странное присутствие заставляет вас чувствовать угрозу...</div>
+                </div>
+
+                <div class="ut-battle-zone">
+                    <div class="secret-trigger-zone" onclick="activateStealthChat()"></div>
+                    <div class="ut-soul" id="playerSoul">❤️</div>
+                </div>
+
+                <div class="ut-buttons">
+                    <button class="ut-btn">FIGHT</button>
+                    <button class="ut-btn">ACT</button>
+                    <button class="ut-btn">ITEM</button>
+                    <button class="ut-btn trigger-mercy" onclick="activateStealthChat()">MERCY</button>
+                </div>
+            </div>
+
+            <div class="ut-stealth-chat hidden" id="stealthChat">
+                <div class="chat-banner">* СВЯЗЬ С ОПЕРАТОРОМ УСТАНОВЛЕНА...</div>
+
+                <div class="ut-chat-history">
+                    <div class="ut-msg system">* Передача координат GPS активирована. Запись начата.</div>
+                    <div class="ut-msg operator">* Говорит диспетчер. Напишите, что происходит. Я отвечу текстом.</div>
+                    <div class="ut-msg user">* Мне нужна помощь, подозрительный человек у двери.</div>
+                </div>
+
+                <div class="ut-chat-inputs">
+                    <input type="text" class="ut-input" placeholder="Введите сообщение...">
+                    <button class="ut-send-btn" onclick="closeChatFast()">[ ESC ]</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function activateStealthChat() {
+        document.getElementById('gameScreen').classList.add('hidden');
+        document.getElementById('stealthChat').classList.remove('hidden');
+    }
+
+    function closeChatFast() {
+        document.getElementById('stealthChat').classList.add('hidden');
+        document.getElementById('gameScreen').classList.remove('hidden');
+    }
+</script>
 </body>
 </html>
