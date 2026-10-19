@@ -49,6 +49,34 @@ body {
     padding: 25px;
 }
 
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-group .ut-input {
+    max-width: 180px;
+    flex:1;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.error-msg {
+    color: #ff0000;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-top: 5px;
+    display: block;
+}
+
 .ut-screen {
     display: flex;
     flex-direction: column;

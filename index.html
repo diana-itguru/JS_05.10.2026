@@ -16,9 +16,37 @@
 
         <div class="undertale-container">
 
-            <div class="ut-screen" id="gameScreen">
+            <div class="ut-screen" id="authScreen">
                 <div class="ut-dialog-box">
-                    <div class="ut-text">* Странное присутствие заставляет вас чувствовать угрозу...</div>
+                    <div class="ut-text">Назовите себя, человек</div>
+                </div>
+                <form class="ut-form" id="regForm" onsubmit="validateForm(event)" style="display: flex; flex-direction: column; gap: 20px; margin-top: 25px;">
+
+                    <div class="input-group" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+                        <label class="ut-label" style="min-width: 90px;">ФИО:</label>
+                        <input type="text" id="inputFio" class="ut-input" placeholder="Фамилия Имя Отчество (если есть)" required style="flex: 1; min-width: 180px; max-width: 220px;">
+                        <span class="error-msg hidden" id="errorFio" style="color: #ff5555; font-size: 10px; width: 100%; margin-top: 5px;">Неверный формат ФИО</span>
+                    </div>
+
+                    <div class="input-group" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+                        <label class="ut-label" style="min-width: 90px;">Телефон:</label>
+                        <input type="text" id="inputPhone" class="ut-input" placeholder="+996 (999) 999-999" required style="flex: 1; min-width: 180px; max-width: 220px;">
+                        <span class="error-msg hidden" id="errorPhone" style="color: #ff5555; font-size: 10px; width: 100%; margin-top: 5px;">Неверный формат номера телефона</span>
+                    </div>
+
+                    <div class="input-group" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+                        <label class="ut-label" style="min-width: 90px;">Почта:</label>
+                        <input type="text" id="inputEmail" class="ut-input" placeholder="example@mail.ru" required style="flex: 1; min-width: 180px; max-width: 220px;">
+                        <span class="error-msg hidden" id="errorEmail" style="color: #ff5555; font-size: 10px; width: 100%; margin-top: 5px;">Неверный формат e-mail</span>
+                    </div>
+
+                    <button type="submit" class="ut-btn font-pixel btn-submit" style="margin-top: 15px; align-self: flex-start;">НАЧАТЬ ИГРУ</button>
+                </form>
+            </div>
+
+            <div class="ut-screen hidden" id="gameScreen">
+                <div class="ut-dialog-box">
+                    <div class="ut-text" id="welcomeText">* Странное присутствие заставляет вас чувствовать угрозу...</div>
                 </div>
 
                 <div class="ut-battle-zone">
@@ -54,16 +82,7 @@
     </div>
 </div>
 
-<script>
-    function activateStealthChat() {
-        document.getElementById('gameScreen').classList.add('hidden');
-        document.getElementById('stealthChat').classList.remove('hidden');
-    }
+<script src="index.js"></script>
 
-    function closeChatFast() {
-        document.getElementById('stealthChat').classList.add('hidden');
-        document.getElementById('gameScreen').classList.remove('hidden');
-    }
-</script>
 </body>
 </html>
